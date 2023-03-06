@@ -1,0 +1,175 @@
+import simplegui
+import random
+# Create Global Variable
+width = 600
+height = 600
+x = -1250
+y = -250
+z = 352
+s = -3000
+c = -3000
+def draw_handler(canvas):
+    global x
+    global y
+    global z
+    global s
+    global c
+    #moon
+    canvas.draw_circle((300, 0), 150, 5, "black", "lightgray")
+   #new background
+    if s >= -100:
+        frame.set_canvas_background("rgb(204, 229, 255)")
+    #coverup
+    if s >= -100:
+        s = s + 5
+        canvas.draw_polygon([(100, 0), (500, 0), (500, 300), (100, 300)], 15, "rgb(204, 229, 255)", "rgb(204, 229, 255)")
+    #sun
+    if s <= 300:
+        s = s+5
+        canvas.draw_circle((s, 300), 250, 3, "black", "yellow")
+    elif s >= 300:
+        canvas.draw_circle((300, 300), 250, 3, "black", "yellow")
+    #ground
+    canvas.draw_polygon([(0, 300), (600, 300), (600, 600), (0, 600)], 5, "black", "rgb(75, 33, 0)")
+   #railroad
+    canvas.draw_polygon([(0, 480), (300, 480), (300, 540), (0, 540)], 3, "gray", "gray")
+    canvas.draw_polygon([(300, 480), (600, 480), (600, 540), (300, 540)], 3, "gray", "gray")
+    #canvas.draw_circle(())
+    #railing 
+    railroad =  canvas.draw_line((10, 455), (10, 565), 10, "brown")
+    canvas.draw_line((10, 455), (10, 565), 10, "brown")
+    canvas.draw_line((40, 455), (40, 565), 10, "brown")
+    canvas.draw_line((70, 455), (70, 565), 10, "brown")
+    canvas.draw_line((100, 455), (100, 565), 10, "brown")
+    canvas.draw_line((130, 455), (130, 565), 10, "brown")
+    canvas.draw_line((160, 455), (160, 565), 10, "brown")
+    canvas.draw_line((190, 455), (190, 565), 10, "brown")
+    canvas.draw_line((220, 455), (220, 565), 10, "brown")
+    canvas.draw_line((250, 455), (250, 565), 10, "brown")
+    canvas.draw_line((280, 455), (280, 565), 10, "brown")
+    canvas.draw_line((310, 455), (310, 565), 10, "brown")
+    canvas.draw_line((340, 455), (340, 565), 10, "brown")
+    canvas.draw_line((370, 455), (370, 565), 10, "brown")
+    canvas.draw_line((400, 455), (400, 565), 10, "brown")
+    canvas.draw_line((430, 455), (430, 565), 10, "brown")
+    canvas.draw_line((460, 455), (460, 565), 10, "brown")
+    canvas.draw_line((490, 455), (490, 565), 10, "brown")
+    canvas.draw_line((520, 455), (520, 565), 10, "brown")
+    canvas.draw_line((550, 455), (550, 565), 10, "brown")
+    canvas.draw_line((580, 455), (580, 565), 10, "brown")
+    
+   
+    #rain
+    if s <= 300:
+        for i in range(1):
+            rain = random.randint(0, 600)
+        rains = random.randint(0, 600)
+        canvas.draw_circle((rain, rains), 5, 1, "blue", "blue")
+   
+    #snow
+    if s <= 1000:
+        for s in range(s):
+            rain = random.randint(0, 600)
+            rains = random.randint(0, 600)
+            canvas.draw_circle((rain, rains), 5, 1, "lightblue", "lightblue")
+    #if s <= 300:
+    #flowers
+    #if s <= 300
+        
+       
+    #button
+    canvas.draw_line((290, 360), (310, 360), 10, "gray")
+    canvas.draw_line((295, 353), (305, 353), 3, "red")
+   
+    #person1 (hero)
+    
+    if x != 290:
+        x = x + 5
+    canvas.draw_circle((x, 250), 25, 1, "black", "white")
+    canvas.draw_circle((x - 8, 250), 2, 1, "black", "black")
+    canvas.draw_circle((x + 8, 250), 2, 1, "black", "black")
+    canvas.draw_line((x, 275), (x, 300), 5, "green")
+    canvas.draw_line((x - 15, 350), (x, 300), 5, "green")
+    canvas.draw_line((x + 15, 350), (x, 300), 5, "green")
+     
+    canvas.draw_line((x - 20, 280), (x, 300), 5, "green")
+    canvas.draw_line((x + 20, 280), (x, 300), 5, "green")
+    
+        
+    #person 2
+    canvas.draw_circle((510, 500), 25, 1, "black", "white")
+    canvas.draw_circle((502,500), 2, 1, "black", "black")
+    canvas.draw_circle((518,500), 2, 1, "black", "black")
+    canvas.draw_line((510,525), (510,550), 1, "black")
+    canvas.draw_circle((510, 515), 8, 1, "black", "black")
+    canvas.draw_polygon([(502, 515), (518, 515), (518, 521.4), (502, 521.4)], 3, "white", "white")
+    
+    canvas.draw_line((510, 525), (515, 540), 1, "black")
+    canvas.draw_line((510, 525), (505, 540), 1, "black")
+     #train forward
+    if y != 370:
+        y = y + 2
+    
+        canvas.draw_polygon([(y, 540), (y + 100, 540), (y + 100, 450), (y, + 450)], 5, "black", "brown")
+    #train backward
+    elif z >= -50:
+        z = z - 2
+        canvas.draw_polygon([(z, 540), (z + 100, 540), (z + 100, 450), (z, + 450)], 5, "black", "brown")
+    #transition
+    if s >= 1500 and s <= 2000:
+        canvas.draw_polygon([(0,0), (600, 0), (600, 600), (0, 600)], 3, "black", "black")
+    elif s >= 2000:
+        canvas.draw_polygon([(0,0), (600, 0), (600, 600), (0, 600)], 3, "white", "rgb(204, 229, 255)")
+        #grass
+        canvas.draw_polygon([(0, 500), (600,500), (600,600), (0, 600)], 1, "black", "green") 
+  
+        #base
+        canvas.draw_polygon([(150, 550), (150,300), (450, 300), (450, 550)], 1, "black", "red") 
+  
+         #triangle/roof
+        canvas.draw_polygon([(300, 0), (75, 310), (525, 310)], 1, "black", "gray") 
+   
+          #window 1
+        canvas.draw_polygon([(170, 450), (170, 400), (220, 400), (220, 450)], 3.5, "black", "white") 
+          # window 2
+        canvas.draw_polygon([(430, 450), (430, 400), (380, 400), (380, 450)], 3.5, "black", "white") 
+         #window lines 1
+        canvas.draw_line((195, 450), (195, 400), 2, "black")
+        canvas.draw_line((170, 425), (220, 425), 2, "black")
+    
+          #window lines 2
+        canvas.draw_line((405, 450), (405, 400), 2, "black")
+        canvas.draw_line((380, 425), (430, 425), 2, "black")
+         #door
+        canvas.draw_polygon([(265, 548), (265, 430), (335, 430), (335, 548)], 3, "gray", "lightpurple")
+    
+   
+    
+        #person 1
+        canvas.draw_text("M", (265, 200), 90, "yellow") #M
+    
+        canvas.draw_text("Mc Donald's", (170, 300), 50, "white") #Mc Donald's
+        canvas.draw_circle((500, 500), 25, 1, "black", "white")
+        canvas.draw_circle((500 - 8, 500), 2, 1, "black", "black")
+        canvas.draw_circle((500 + 8 , 500), 2, 1, "black", "black")
+        canvas.draw_line((500, 525), (500, 550), 5, "black")
+        canvas.draw_line((500 - 15, 600), (500, 550), 5, "black")
+        canvas.draw_line((500 + 15 , 600), (500, 550), 5, "black")
+     
+        canvas.draw_line((500 - 20, 530), (500, 550), 5, "black")
+        canvas.draw_line((500 + 20, 530), (500, 550), 5, "black")
+        #person 2
+        canvas.draw_circle((510 -10, 500 - 75), 25, 1, "black", "white")
+        canvas.draw_circle((502 -10,500 - 75), 2, 1, "black", "black")
+        canvas.draw_circle((518 -10,500 - 75), 2, 1, "black", "black")
+        canvas.draw_line((510 -10,525 - 75), (510 -10,550-75), 1, "green")
+        canvas.draw_circle((510 -10, 515 - 75), 8, 1, "black", "black")
+        
+    
+        canvas.draw_line((510-10, 525-75), (515-10, 540-75), 1, "green")
+        canvas.draw_line((510-10, 525-75), (505-10, 540-75), 1, "green")
+        
+frame = simplegui.create_frame('The Train Incident', width, height)
+frame.set_canvas_background("rgb(91, 86, 122)")
+frame.set_draw_handler(draw_handler)
+frame.start()
